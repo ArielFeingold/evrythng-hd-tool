@@ -21,6 +21,21 @@ import signupPageStyle from '../assets/jss/views/signupPageStyle.jsx'
 
 class SignupPage extends Component {
 
+  state = {
+    firstName: '',
+    lastName: '',
+    email: ''
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  };
+
+  handleSubmit = () => {
+
+  }
 
   render() {
     const { classes } = this.props;
@@ -40,7 +55,7 @@ class SignupPage extends Component {
                       <h4>Signup</h4>
                     </CardHeader>
                     <CardBody>
-                         <form className={classes.form} noValidate autoComplete="off">
+                         <form className={classes.form} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
                         <TextField
                         id="first-name"
                         label="First Name"
@@ -49,6 +64,7 @@ class SignupPage extends Component {
                         fullWidth
                         margin="normal"
                         variant="outlined"
+                        onChange={this.handleChange}
                         InputLabelProps={{
                             shrink: true,
                         }}
@@ -62,6 +78,7 @@ class SignupPage extends Component {
                         fullWidth
                         margin="normal"
                         variant="outlined"
+                        onChange={this.handleChange}
                         InputLabelProps={{
                             shrink: true,
                         }}
@@ -74,18 +91,7 @@ class SignupPage extends Component {
                         fullWidth
                         margin="normal"
                         variant="outlined"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                        />
-                        <TextField
-                        id="password"
-                        label="Password"
-                        style={{ margin: 8 }}
-                        placeholder="8 Characters Minimum"
-                        fullWidth
-                        margin="normal"
-                        variant="outlined"
+                        onChange={this.handleChange}
                         InputLabelProps={{
                             shrink: true,
                         }}
